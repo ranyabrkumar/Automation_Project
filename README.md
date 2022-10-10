@@ -18,3 +18,5 @@ step 4: The script should run the AWS CLI command and copy the archive to the s3
     cp /tmp/${myname}-httpd-logs-${timestamp}.tar \
     s3://${s3_bucket}/${myname}-httpd-logs-${timestamp}.tar
  
+ Step 5: Host the script in Git Repository
+ 
