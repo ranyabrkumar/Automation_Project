@@ -23,5 +23,13 @@ s3_bucket=upgrade-ranya1
  aws s3 \
 cp ./tmp/${myname}-httpd-logs-${timestamp}.tar \
 s3://${s3_bucket}/${myname}-httpd-logs-${timestamp}.tar
+# Task 3
+IFS='-' read -r -a array <<< "$filename"
+log_Type="${array[1]}"-"${array[2]}"
+Type=tar
+filesize=$(ls -lah ./tmp/${myname}-httpd-logs-${timestamp}.tar |cut -d ' ' -f 5)
+cd /var/www/html/
+echo -e "$log_Type""         $timestamp" "         $Type" "         $filesize" >> inventory.html
 
+	
 
